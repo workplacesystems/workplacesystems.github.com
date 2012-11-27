@@ -4,19 +4,22 @@ $(function() {
   , gists = {}
   , teams = {};
 
-//  $.ajax({
-//    url: "https://api.github.com/orgs/workplacesystems/public_members",
+  $.ajax({
+    url: "https://api.github.com/orgs/workplacesystems/public_members",
+    dataType: "json"
 //    context: document.body
-//  }).done(function(data) { 
-//    //$(this).addClass("done");
-//    console.log(data);
-//  });
+  }).done(function(data) { 
+    //$(this).addClass("done");
+    console.log(data);
+  }).fail(function() {
+    console.log('error');
+  });
   
   
-  var jqxhr = $.ajax( "https://api.github.com/orgs/workplacesystems/members" )
-    .done(function() { alert("success"); })
-    .fail(function() { alert("error"); })
-    .always(function() { alert("complete"); });
+//  var jqxhr = $.ajax( "https://api.github.com/orgs/workplacesystems/members" )
+//    .done(function() { alert("success"); })
+//    .fail(function() { alert("error"); })
+//    .always(function() { alert("complete"); });
 
 
 });
