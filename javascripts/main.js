@@ -27,6 +27,9 @@ $.ajax({
   success: function(data) {
     console.log(data);
     alert('Load was performed.');
+  },
+  error: function(err, status) {
+    console.log(err, status);
   }
 });
 
