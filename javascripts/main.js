@@ -37,7 +37,7 @@ $.ajax({
 
 $.ajax({
   //  url: "https://api.github.com/repos/VonC/gitolite/git/refs/tags",
-    url: "https://api.github.com/orgs/workplacesystems/members",
+    url: "api.github.com/orgs/workplacesystems/members",
     dataType: "json",
     success: function (returndata)
     {
@@ -49,7 +49,3 @@ $.ajax({
 
 
 });
-
-
-
-
