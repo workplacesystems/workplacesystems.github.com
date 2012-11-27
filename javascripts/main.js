@@ -22,6 +22,7 @@ $(function() {
 //    .always(function() { alert("complete"); });
 
 
+/*
 $.ajax({
   url: 'https://api.github.com/orgs/workplacesystems/members',
   success: function(data) {
@@ -31,6 +32,19 @@ $.ajax({
   error: function(err, status) {
     console.log(err, status);
   }
+});
+*/
+
+$.ajax({
+  //  url: "https://api.github.com/repos/VonC/gitolite/git/refs/tags",
+    url: "https://api.github.com/orgs/workplacesystems/members",
+    dataType: "json",
+    success: function (returndata)
+    {
+      
+      //  $("#result").html(returndata[0]["object"]["sha"]);
+        alert('Load was performed.');
+    }  
 });
 
 
