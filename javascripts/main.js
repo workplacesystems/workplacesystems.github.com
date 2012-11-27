@@ -4,8 +4,8 @@ $(function() {
   , gists = {}
   , teams = {};
 
-  $.ajax({
-    url: "https://api.github.com/orgs/workplacesystems/public_members",
+  var jqxhr = $.ajax({
+    url: "https://api.github.com/orgs/workplacesystems/members",
     dataType: "json"
 //    context: document.body
   }).done(function(data) { 
