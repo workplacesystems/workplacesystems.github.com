@@ -13,7 +13,7 @@ $(function() {
 //  });
   
   
-  var jqxhr = $.ajax( "https://api.github.com/orgs/workplacesystems/public_members" )
+  var jqxhr = $.ajax( "https://api.github.com/orgs/workplacesystems/members" )
     .done(function() { alert("success"); })
     .fail(function() { alert("error"); })
     .always(function() { alert("complete"); });
