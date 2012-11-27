@@ -1,1 +1,14 @@
-console.log('This would be the main JS file.');
+$(function() {
+
+  var members = {}
+  , gists = {}
+  , teams = {};
+
+//  $.ajax
+
+
+});
+
+
+
+
