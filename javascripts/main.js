@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+/*
     var jqXHR1 = $.ajax( {
         url: "https://api.github.com/orgs/workplacesystems/members",
         dataType: "json"
@@ -30,4 +30,4 @@ $(document).ready(function() {
             alert('Error getting Users!');
         });                
 });
-​
+*/
