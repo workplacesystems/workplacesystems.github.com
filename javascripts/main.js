@@ -1,51 +1,33 @@
-$(function() {
+$(document).ready(function() {
 
-  var members = {}
-  , gists = {}
-  , teams = {};
-
-//  var jqxhr = $.ajax({
-//    url: "https://api.github.com/orgs/workplacesystems/members",
-//    dataType: "json"
-//    context: document.body
-//  }).done(function(data) { 
-    //$(this).addClass("done");
-//    console.log(data);
-//  }).fail(function() {
-//    console.log('error');
-//  });
-  
-  
-//  var jqxhr = $.ajax( "https://api.github.com/orgs/workplacesystems/members" )
-//    .done(function() { alert("success"); })
-//    .fail(function() { alert("error"); })
-//    .always(function() { alert("complete"); });
-
-
-/*
-$.ajax({
-  url: 'https://api.github.com/orgs/workplacesystems/members',
-  success: function(data) {
-    console.log(data);
-    alert('Load was performed.');
-  },
-  error: function(err, status) {
-    console.log(err, status);
-  }
+    var jqXHR1 = $.ajax( {
+        url: "https://api.github.com/orgs/workplacesystems/members",
+        dataType: "json"
+        }).done(function (result) {
+            $.each(result, function (index, item) {
+                var jqXHR2 = $.ajax( {
+                    url: "https://api.github.com/users/" + item.login + "/gists",
+                    dataType: "json",
+                    async: false
+                    //context: { firstResult: item }
+                    }).done(function (secondResult) {
+                        item.gists = secondResult;
+                    }).fail(function(err, status) {
+                        alert('Error getting Gists!');
+                    });    
+            });
+            var htmlStr = '<ul data-role="listview" data-theme="b" data-dividertheme="a" data-inset="false" class="users">';
+            $.each(result, function(index, item) {
+                htmlStr += '<li>' + item.login + '</li><ul data-role="listview" data-inset="true" data-theme="d" data-dividertheme="a" class="gists">';
+                $.each(item.gists, function(index, gist) {
+                    htmlStr+= '<li><a href="' + gist.html_url + '" target="_blank">' + gist.description + '</a></li>';
+                });
+                htmlStr += '</ul>';
+            });
+            htmlStr += '</ul>';            
+            $('.result').html(htmlStr);
+        }).fail(function(err, status) {
+            alert('Error getting Users!');
+        });                
 });
-*/
-
-$.ajax({
-  //  url: "https://api.github.com/repos/VonC/gitolite/git/refs/tags",
-    url: "api.github.com/orgs/workplacesystems/members",
-    dataType: "json",
-    success: function (returndata)
-    {
-      
-      //  $("#result").html(returndata[0]["object"]["sha"]);
-        alert('Load was performed.');
-    }  
-});
-
-
-});
+​
