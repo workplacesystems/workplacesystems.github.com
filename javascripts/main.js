@@ -29,5 +29,5 @@ $(document).ready(function() {
         }).fail(function(err, status) {
             alert('Error getting Users!');
         });                
-});
 */
+});
