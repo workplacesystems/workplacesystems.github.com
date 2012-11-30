@@ -26,6 +26,6 @@ $(document).ready(function() {
             htmlStr += '</ul>';            
             $('.result').html(htmlStr);
         }).fail(function(err, status) {
-            alert('Error getting Users!');
+            alert('Error getting Users! - ' + err + ' - ' + status);
         });                
 });
